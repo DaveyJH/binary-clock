@@ -6,9 +6,10 @@ const [hourBlocks, minuteBlocks, secondBlocks] = rows.map(row => {
 const setBlocks = (blocks, value) => {
     const length = blocks.length;
     for (let i = 0; i < length; i++) {
-        blocks[i].style.background = value[value.length - 1 - i] === "1" ?
-            "#e26a07"
-            : "#2f3e46";
+        const active = value[value.length - 1 - i] === "1" ?
+            true
+            : false;
+        blocks[i].classList.toggle("active", active);
     }
 };
 
