@@ -1,0 +1,30 @@
+body {
+  background: linear-gradient(
+    #022069, #1877b6 15%, #01ddff, #1877b6 85%, #022069);
+  margin: 0;
+  min-height: 100vh;
+}
+
+body,
+.binary-clock,
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row-reverse;
+}
+
+.block {
+  transition: all .3s ease;
+  margin: 0.375rem;
+  display: inline-block;
+  height: 6.25rem;
+  width: 6.25rem;
+  border-radius: 13%;
+  border: solid 3px black;
+  background: #2f3e46;
+}
