@@ -20,10 +20,12 @@ body,
 
 .block {
   transition: all .3s ease;
-  margin: 0.375rem;
+  margin: min(0.375rem, 1.5vh);
   display: inline-block;
   height: 6.25rem;
   width: 6.25rem;
+  max-height: 24vh;
+  max-width: 24vh;
   border-radius: 13%;
   border: solid 3px black;
   background: #2f3e46;
