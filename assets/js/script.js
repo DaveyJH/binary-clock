@@ -27,7 +27,7 @@ const setTime = time => {
 const initTime = new Date();
 setBlocks(secondBlocks, initTime.getSeconds().toString(2));
 setBlocks(minuteBlocks, initTime.getMinutes().toString(2));
-setBlocks(hourBlocks, initTime.getHours().toString(2));
+setBlocks(hourBlocks, (initTime.getHours() % 12).toString(2));
 
 setInterval(() => {
     const time = new Date();
