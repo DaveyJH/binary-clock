@@ -55,7 +55,7 @@ body,
     inset 0px 0px .5rem #ff441f,
     0px 0px .5rem #ff441f,
     0px 0px 1.5rem #ff5a1f,
-    -1rem min(8rem, 12.8vw) 2rem #eff6cc;
+    -1rem min(8rem, 12.8vw) 2.5rem #eff6ccbb;
 }
 
 .active.minute {
@@ -64,7 +64,7 @@ body,
     inset 0px 0px .5rem #ff441f,
     0px 0px .5rem #ff441f,
     0px 0px 1.5rem #ff5a1f,
-    -2rem min(22rem, 38.8vw) 3rem #eff6cc;
+    -2rem min(22rem, 38.8vw) 3.5rem #eff6ccaa;
 }
 
 .active.hour {
@@ -73,7 +73,7 @@ body,
     inset 0px 0px .5rem #ff441f,
     0px 0px .5rem #ff441f,
     0px 0px 1.5rem #ff5a1f,
-    -3rem min(36rem, 63.8vw) 3rem #eff6cc;
+    -3rem min(36rem, 63.8vw) 4rem #eff6cc99;
 }
 
 @keyframes switch {
