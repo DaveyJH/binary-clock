@@ -14,8 +14,6 @@ body,
 }
 
 .row {
-  position: relative;
-  transform: translateY(-100%);
   flex-direction: row-reverse;
 }
 
@@ -89,5 +87,11 @@ body,
       radial-gradient(#2f3e46 9%, #d0c999 11%, #2f3e46 13%,
         #ff5a1f 38%, #ff4400 40%, #ff4400 42%, #e26a07 44%,
         #fbbc89 46.5%, #2f3e46 60%);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  :root {
+    font-size: 8px;
   }
 }
