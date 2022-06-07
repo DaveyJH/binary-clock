@@ -20,14 +20,15 @@ const setTime = time => {
     setBlocks(secondBlocks, seconds.toString(2));
     if (seconds === 0) {
         setBlocks(minuteBlocks, minutes.toString(2));
-        setBlocks(hourBlocks, (hours % 12).toString(2));
+        setBlocks(hourBlocks, (hours % 12 === 0 ? 12 : hours % 12).toString(2));
     }
 };
 
 const initTime = new Date();
 setBlocks(secondBlocks, initTime.getSeconds().toString(2));
 setBlocks(minuteBlocks, initTime.getMinutes().toString(2));
-setBlocks(hourBlocks, (initTime.getHours() % 12).toString(2));
+setBlocks(hourBlocks, (
+    initTime.getHours() % 12 === 0 ? 12 : initTime.getHours() % 12).toString(2));
 
 setInterval(() => {
     const time = new Date();
