@@ -1,36 +1,23 @@
-const rows = Array.from(document.querySelectorAll(".row"));
-const [hourBlocks, minuteBlocks, secondBlocks] = rows.map(row => {
-    return row.querySelectorAll(".block");
-});
+const hourBlocks = Array.from(document.querySelectorAll(".hour"));
+const minuteBlocks = Array.from(document.querySelectorAll(".minute"));
+const secondBlocks = Array.from(document.querySelectorAll(".second"));
 
 const setBlocks = (blocks, value) => {
-    const length = blocks.length;
-    for (let i = 0; i < length; i++) {
-        const active = value[value.length - 1 - i] === "1" ?
-            true
-            : false;
-        blocks[i].classList.toggle("active", active);
+    blocks.map((block) => {
+        block.classList.toggle("active", value % 2);
+        value = Math.trunc(value / 2);
+    })
+};
+
+const setClock = (init) => {
+    const timeNow = new Date();
+    const seconds = timeNow.getSeconds();
+    setBlocks(secondBlocks, seconds);
+    if (seconds === 0 || init) {
+        setBlocks(minuteBlocks, timeNow.getMinutes());
+        setBlocks(hourBlocks, (timeNow.getHours() % 12 || 12));
     }
 };
 
-const setTime = time => {
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
-    setBlocks(secondBlocks, seconds.toString(2));
-    if (seconds === 0) {
-        setBlocks(minuteBlocks, minutes.toString(2));
-        setBlocks(hourBlocks, (hours % 12 === 0 ? 12 : hours % 12).toString(2));
-    }
-};
-
-const initTime = new Date();
-setBlocks(secondBlocks, initTime.getSeconds().toString(2));
-setBlocks(minuteBlocks, initTime.getMinutes().toString(2));
-setBlocks(hourBlocks, (
-    initTime.getHours() % 12 === 0 ? 12 : initTime.getHours() % 12).toString(2));
-
-setInterval(() => {
-    const time = new Date();
-    setTime(time);
-}, 1000);
+setClock(true);
+setInterval(setClock, 1000);
